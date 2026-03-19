@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>32-bit to 64-bit | Sajal Chaulagain</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-label">Loading<span class="dots">...</span></div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- TOP PROGRESS BAR -->
+  <div id="progress-bar"></div>
+
+  <!-- SIDE NAV -->
+  <nav id="side-nav">
+    <div class="nav-dot active"  data-section="0"  data-label="Cover"></div>
+    <div class="nav-dot"         data-section="1"  data-label="What is This?"></div>
+    <div class="nav-dot"         data-section="2"  data-label="How CPU Works"></div>
+    <div class="nav-dot"         data-section="3"  data-label="Side by Side"></div>
+    <div class="nav-dot"         data-section="4"  data-label="Performance"></div>
+    <div class="nav-dot"         data-section="5"  data-label="Memory"></div>
+    <div class="nav-dot"         data-section="6"  data-label="Speed"></div>
+    <div class="nav-dot"         data-section="7"  data-label="Real World"></div>
+    <div class="nav-dot"         data-section="8"  data-label="Challenges"></div>
+    <div class="nav-dot"         data-section="9"  data-label="Who Benefited"></div>
+    <div class="nav-dot"         data-section="10" data-label="What Next"></div>
+    <div class="nav-dot"         data-section="11" data-label="Wrap Up"></div>
+    <div class="nav-dot"         data-section="12" data-label="Thank You"></div>
+  </nav>
+
+  <!-- ══ SLIDE 0: COVER ══ -->
+  <section class="slide" id="slide-0">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">Basic Computer Architecture · BIT 1st Year</div>
+      <h1 data-aos="fade-up" data-aos-delay="400">
+        <span class="line1">32-bit</span>
+        <span class="arrow-anim"><i class="fas fa-long-arrow-alt-right"></i></span>
+        <span class="line2">64-bit</span>
+      </h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="600">
+        Why did computers upgrade from 32-bit to 64-bit?<br>Let's find out — simply and clearly.
+      </p>
+      <div class="hero-meta" data-aos="fade-up" data-aos-delay="800">
+        <div class="meta-card"><i class="fas fa-user"></i><span>Sajal Chaulagain</span></div>
+        <div class="meta-card"><i class="fas fa-id-card"></i><span>LC00017004306</span></div>
+        <div class="meta-card"><i class="fas fa-university"></i><span>Texas College of Management & IT</span></div>
+      </div>
+      <a href="#slide-1" class="scroll-btn" data-aos="fade-up" data-aos-delay="1000">
+        Let's Begin <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- ══ SLIDE 1: OBJECTIVES ══ -->
+  <section class="slide" id="slide-1">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">01</span>
+        <h2>What Are We Studying?</h2>
+        <p class="section-sub">Think of it like upgrading from a small bag to a huge backpack — you can carry so much more!</p>
+        <div class="header-line"></div>
+      </div>
+      <div class="objectives-grid">
+        <div class="obj-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="obj-icon"><i class="fas fa-balance-scale"></i></div>
+          <h3>Compare them</h3>
+          <p>What's actually different between 32-bit and 64-bit?</p>
+        </div>
+        <div class="obj-card" data-aos="fade-up" data-aos-delay="175">
+          <div class="obj-icon"><i class="fas fa-tachometer-alt"></i></div>
+          <h3>How much faster?</h3>
+          <p>By how much did speed and memory improve?</p>
+        </div>
+        <div class="obj-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="obj-icon"><i class="fas fa-puzzle-piece"></i></div>
+          <h3>Did everything work?</h3>
+          <p>Old software didn't always run — were there compatibility issues?</p>
+        </div>
+        <div class="obj-card" data-aos="fade-up" data-aos-delay="325">
+          <div class="obj-icon"><i class="fas fa-exclamation-triangle"></i></div>
+          <h3>What went wrong?</h3>
+          <p>What challenges appeared during the switch?</p>
+        </div>
+        <div class="obj-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="obj-icon"><i class="fas fa-rocket"></i></div>
+          <h3>What comes next?</h3>
+          <p>Could 128-bit be the future? Let's see.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 2: CPU DIAGRAM ══ -->
+  <section class="slide" id="slide-2">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">02</span>
+        <h2>How Does a CPU Actually Work?</h2>
+        <p class="section-sub">Your CPU is like a tiny brain. It reads instructions, does the math, and sends out results. Here's how the parts connect.</p>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="cpu-diagram-simple" data-aos="zoom-in" data-aos-delay="100">
+        <!-- Row 1: Input → CPU → Output -->
+        <div class="diag-row top-row">
+          <div class="diag-node input-node" data-tip="Your keyboard, mouse, microphone — anything that sends data in">
+            <i class="fas fa-keyboard"></i>
+            <span>Input</span>
+            <small>keyboard, mouse…</small>
+          </div>
+          <div class="diag-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="cpu-core-box">
+            <div class="cpu-core-title"><i class="fas fa-microchip"></i> CPU — The Brain</div>
+            <div class="cpu-core-parts">
+              <div class="core-part" data-tip="Acts like a traffic cop — tells every other part what to do and when">
+                <i class="fas fa-traffic-light"></i>
+                <b>Control Unit</b>
+                <span>Tells parts what to do</span>
+              </div>
+              <div class="core-divider"></div>
+              <div class="core-part" data-tip="Does all the actual calculations — addition, subtraction, comparisons">
+                <i class="fas fa-calculator"></i>
+                <b>ALU</b>
+                <span>Does all the maths</span>
+              </div>
+              <div class="core-divider"></div>
+              <div class="core-part" data-tip="Super-fast tiny slots inside the CPU that hold numbers it is currently using">
+                <i class="fas fa-list-ol"></i>
+                <b>Registers</b>
+                <span>Tiny fast storage slots</span>
+              </div>
+            </div>
+          </div>
+          <div class="diag-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="diag-node output-node" data-tip="Your monitor, speakers, printer — anything that shows you the results">
+            <i class="fas fa-desktop"></i>
+            <span>Output</span>
+            <small>screen, speakers…</small>
+          </div>
+        </div>
+
+        <!-- Buses -->
+        <div class="diag-buses">
+          <div class="bus-pill data-bus-p"><i class="fas fa-exchange-alt"></i> Data Bus — carries the actual data</div>
+          <div class="bus-pill addr-bus-p"><i class="fas fa-map-pin"></i> Address Bus — says where to find data</div>
+          <div class="bus-pill ctrl-bus-p"><i class="fas fa-sliders-h"></i> Control Bus — sends control signals</div>
+        </div>
+
+        <!-- Row 2: RAM + Storage -->
+        <div class="diag-row bottom-row">
+          <div class="diag-node ram-node" data-tip="RAM is your temporary workspace — fast but forgets everything when you switch off">
+            <i class="fas fa-memory"></i>
+            <span>RAM</span>
+            <small>Temporary workspace</small>
+          </div>
+          <div class="diag-spacer"></div>
+          <div class="diag-node storage-node" data-tip="Your HDD or SSD — saves files permanently even after switching off">
+            <i class="fas fa-hdd"></i>
+            <span>Storage</span>
+            <small>Permanent files</small>
+          </div>
+        </div>
+
+        <p class="diag-hint">👆 Hover over any box to learn what it does</p>
+        <div id="cpu-tooltip" class="cpu-tooltip"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 3: COMPARISON ══ -->
+  <section class="slide" id="slide-3">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">03</span>
+        <h2>32-bit vs 64-bit — Side by Side</h2>
+        <p class="section-sub">Same job, very different capability. Toggle views below.</p>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="toggle-wrapper" data-aos="fade-up" data-aos-delay="100">
+        <button class="toggle-btn active" id="table-btn" onclick="showView('table')"><i class="fas fa-table"></i> Table View</button>
+        <button class="toggle-btn" id="cards-btn" onclick="showView('cards')"><i class="fas fa-th-large"></i> Card View</button>
+      </div>
+
+      <div id="comparison-table" class="comp-table-wrap" data-aos="fade-up" data-aos-delay="200">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>What we're comparing</th>
+              <th><span class="badge-32">32-bit</span></th>
+              <th><span class="badge-64">64-bit</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><i class="fas fa-truck-loading"></i> How much data at once?</td><td>32 bits — like a narrow road</td><td class="good">64 bits — twice as wide!</td></tr>
+            <tr><td><i class="fas fa-memory"></i> Maximum RAM usable</td><td class="bad">Only 4 GB — fills up fast</td><td class="good">Practically unlimited (18.4M TB)</td></tr>
+            <tr><td><i class="fas fa-server"></i> Register size</td><td>32-bit slots</td><td class="good">64-bit slots — holds more</td></tr>
+            <tr><td><i class="fas fa-bolt"></i> Good for heavy tasks?</td><td class="bad">Struggles with big apps</td><td class="good">Handles anything you throw at it</td></tr>
+            <tr><td><i class="fas fa-windows"></i> Operating systems</td><td>Windows XP, Windows 7</td><td class="good">Windows 10/11, Ubuntu, macOS</td></tr>
+            <tr><td><i class="fas fa-layer-group"></i> Multi-tasking</td><td class="bad">Gets slow with many apps open</td><td class="good">Handles dozens of apps easily</td></tr>
+            <tr><td><i class="fas fa-shield-alt"></i> System stability</td><td class="bad">Crashes under heavy use</td><td class="good">Stays solid even under pressure</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="comparison-cards" class="comp-cards-wrap hidden">
+        <div class="comp-card bit32" data-aos="fade-right">
+          <div class="comp-card-header"><span class="badge-32">32-bit</span><span class="comp-era">1990s – early 2000s</span></div>
+          <ul>
+            <li><i class="fas fa-road"></i> Narrow data road — 32 bits at a time</li>
+            <li><i class="fas fa-exclamation-circle"></i> Hits a wall at 4 GB of RAM</li>
+            <li><i class="fas fa-frown"></i> Lags on modern games and videos</li>
+            <li><i class="fab fa-windows"></i> Windows XP / 7 era</li>
+            <li><i class="fas fa-bug"></i> Crashes when overloaded</li>
+          </ul>
+        </div>
+        <div class="comp-vs">VS</div>
+        <div class="comp-card bit64" data-aos="fade-left">
+          <div class="comp-card-header"><span class="badge-64">64-bit</span><span class="comp-era">2010s – today</span></div>
+          <ul>
+            <li><i class="fas fa-road"></i> Wide highway — 64 bits at once</li>
+            <li><i class="fas fa-check-circle"></i> RAM can go way beyond 4 GB</li>
+            <li><i class="fas fa-smile"></i> Handles games, AI, video editing</li>
+            <li><i class="fab fa-windows"></i> Windows 10/11, Ubuntu, macOS</li>
+            <li><i class="fas fa-shield-alt"></i> Rock solid even under load</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 4: PERFORMANCE CHARTS ══ -->
+  <section class="slide" id="slide-4">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">04</span>
+        <h2>How Much Faster Is 64-bit?</h2>
+        <p class="section-sub">We tested three common tasks. The gap is pretty clear.</p>
+        <div class="header-line"></div>
+      </div>
+      <div class="perf-charts-grid">
+        <div class="chart-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="chart-label">
+            <i class="fas fa-film"></i>
+            <div><h3>Video Rendering</h3><p>Frames per second — higher is smoother</p></div>
+          </div>
+          <canvas id="chart-fps" height="170"></canvas>
+          <div class="chart-verdict"><span class="win-badge">64-bit wins by 67%</span></div>
+        </div>
+        <div class="chart-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="chart-label">
+            <i class="fas fa-database"></i>
+            <div><h3>Database Search</h3><p>Seconds to answer a query — lower is faster</p></div>
+          </div>
+          <canvas id="chart-db" height="170"></canvas>
+          <div class="chart-verdict"><span class="win-badge">64-bit is 42% quicker</span></div>
+        </div>
+        <div class="chart-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="chart-label">
+            <i class="fas fa-file-archive"></i>
+            <div><h3>File Compression</h3><p>MB per second — higher is faster zipping</p></div>
+          </div>
+          <canvas id="chart-compress" height="170"></canvas>
+          <div class="chart-verdict"><span class="win-badge">64-bit is 75% faster</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 5: MEMORY ══ -->
+  <section class="slide" id="slide-5">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">05</span>
+        <h2>The RAM Ceiling Problem</h2>
+        <p class="section-sub">32-bit could only ever see 4 GB of RAM — no matter how much you plugged in. 64-bit broke that wall completely.</p>
+        <div class="header-line"></div>
+      </div>
+
+      <div class="memory-compare" data-aos="fade-up" data-aos-delay="100">
+        <div class="mem-row">
+          <div class="mem-row-label">
+            <span class="badge-32">32-bit</span>
+            <code>2³² = ~4 billion addresses</code>
+          </div>
+          <div class="mem-track">
+            <div class="mem-bar-fill fill-32" id="fill32"><span>4 GB — maxed out!</span></div>
+          </div>
+          <div class="mem-value bad">Max: 4 GB</div>
+        </div>
+        <div class="mem-row">
+          <div class="mem-row-label">
+            <span class="badge-64">64-bit</span>
+            <code>2⁶⁴ = almost infinite</code>
+          </div>
+          <div class="mem-track">
+            <div class="mem-bar-fill fill-64" id="fill64"><span>18.4 Million TB — almost endless</span></div>
+          </div>
+          <div class="mem-value good">Max: ~18.4 million TB</div>
+        </div>
+      </div>
+
+      <div class="analogy-box" data-aos="zoom-in" data-aos-delay="300">
+        <i class="fas fa-lightbulb"></i>
+        <p><strong>Think of it this way:</strong> 32-bit RAM is like a tiny desk — you can only keep 4 books open at once. 64-bit is like having an entire library floor. You'll never run out of space.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 6: SPEED & BOOT ══ -->
+  <section class="slide" id="slide-6">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">06</span>
+        <h2>Speed You Can Actually Feel</h2>
+        <p class="section-sub">From how fast RAM moves data, to how long your PC takes to start up.</p>
+        <div class="header-line"></div>
+      </div>
+      <div class="speed-grid">
+        <div class="chart-card" data-aos="fade-right" data-aos-delay="100">
+          <div class="chart-label">
+            <i class="fas fa-bolt"></i>
+            <div><h3>Memory Read & Write Speed</h3><p>GB per second — like how fast data flows through a pipe</p></div>
+          </div>
+          <canvas id="chart-memspeed" height="190"></canvas>
+        </div>
+        <div class="chart-card" data-aos="fade-left" data-aos-delay="200">
+          <div class="chart-label">
+            <i class="fas fa-power-off"></i>
+            <div><h3>System Boot Time</h3><p>Seconds from pressing power to seeing your desktop</p></div>
+          </div>
+          <canvas id="chart-boot" height="190"></canvas>
+          <div class="chart-verdict"><span class="win-badge">Boots 33% faster</span></div>
+        </div>
+      </div>
+      <div class="speed-stats" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-badge"><i class="fas fa-arrow-up"></i> RAM reads 75% faster</div>
+        <div class="stat-badge"><i class="fas fa-arrow-up"></i> RAM writes 100% faster</div>
+        <div class="stat-badge"><i class="fas fa-clock"></i> Boots 15 seconds sooner</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 7: REAL WORLD ══ -->
+  <section class="slide" id="slide-7">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">07</span>
+        <h2>What Changed in Real Life?</h2>
+        <p class="section-sub">The upgrade wasn't just about numbers — it changed what computers could actually do for people every day.</p>
+        <div class="header-line"></div>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="impact-icon"><i class="fab fa-windows"></i></div>
+          <h3>Operating Systems</h3>
+          <p>Windows 10, Windows 11 and Ubuntu are all 64-bit by default now</p>
+        </div>
+        <div class="impact-card" data-aos="zoom-in" data-aos-delay="175">
+          <div class="impact-icon"><i class="fas fa-gamepad"></i></div>
+          <h3>Gaming</h3>
+          <p>Games like GTA V and Cyberpunk need 64-bit — bigger worlds, better graphics</p>
+        </div>
+        <div class="impact-card" data-aos="zoom-in" data-aos-delay="250">
+          <div class="impact-icon"><i class="fas fa-video"></i></div>
+          <h3>Video Editing</h3>
+          <p>4K editing in Premiere or DaVinci Resolve would be impossible on 32-bit</p>
+        </div>
+        <div class="impact-card" data-aos="zoom-in" data-aos-delay="325">
+          <div class="impact-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Multi-tasking</h3>
+          <p>Running Zoom, Chrome, VS Code and Spotify all at once? No problem.</p>
+        </div>
+        <div class="impact-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="impact-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Cloud & Servers</h3>
+          <p>AWS, Google Cloud, Azure — all run on 64-bit and power the internet</p>
+        </div>
+        <div class="impact-card" data-aos="zoom-in" data-aos-delay="475">
+          <div class="impact-icon"><i class="fas fa-brain"></i></div>
+          <h3>AI & Machine Learning</h3>
+          <p>Training AI models needs huge RAM — only possible with 64-bit systems</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 8: CHALLENGES ══ -->
+  <section class="slide" id="slide-8">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">08</span>
+        <h2>It Wasn't All Smooth</h2>
+        <p class="section-sub">The switch was worth it — but it came with some real headaches along the way.</p>
+        <div class="header-line"></div>
+      </div>
+      <div class="challenges-grid">
+        <div class="challenge-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="ch-num">01</div>
+          <div class="ch-icon"><i class="fas fa-puzzle-piece"></i></div>
+          <h3>Old software stopped working</h3>
+          <p>Programs built for 32-bit often refused to run on 64-bit. Developers had to rewrite them — which took time and money.</p>
+          <div class="ch-bar"><div class="ch-fill" style="width:85%"></div></div>
+          <span class="ch-severity high">Biggest hurdle</span>
+        </div>
+        <div class="challenge-card" data-aos="fade-up" data-aos-delay="175">
+          <div class="ch-num">02</div>
+          <div class="ch-icon"><i class="fas fa-print"></i></div>
+          <h3>Printers and devices went offline</h3>
+          <p>Hardware needs "drivers" to talk to your OS. Manufacturers hadn't made 64-bit versions yet, so printers and scanners just stopped working.</p>
+          <div class="ch-bar"><div class="ch-fill" style="width:70%"></div></div>
+          <span class="ch-severity medium">Annoying but fixable</span>
+        </div>
+        <div class="challenge-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="ch-num">03</div>
+          <div class="ch-icon"><i class="fas fa-dollar-sign"></i></div>
+          <h3>Upgrading cost real money</h3>
+          <p>New processors, new RAM, sometimes a whole new PC — the hardware upgrade wasn't cheap. Many companies delayed just to save costs.</p>
+          <div class="ch-bar"><div class="ch-fill" style="width:62%"></div></div>
+          <span class="ch-severity medium">Real barrier for many</span>
+        </div>
+        <div class="challenge-card" data-aos="fade-up" data-aos-delay="325">
+          <div class="ch-num">04</div>
+          <div class="ch-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>People needed to re-learn</h3>
+          <p>IT teams and developers had to test everything from scratch again to make sure software behaved correctly on the new architecture.</p>
+          <div class="ch-bar"><div class="ch-fill" style="width:45%"></div></div>
+          <span class="ch-severity low">Took time, but manageable</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 9: INDUSTRY ══ -->
+  <section class="slide" id="slide-9">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">09</span>
+        <h2>Who Benefited the Most?</h2>
+        <p class="section-sub">Almost every industry got a boost — but some saw a much bigger jump than others.</p>
+        <div class="header-line"></div>
+      </div>
+      <div class="industry-grid">
+        <div class="industry-card" data-aos="flip-up" data-aos-delay="100">
+          <div class="ind-glow"></div>
+          <div class="ind-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Software Companies</h3>
+          <ul>
+            <li>Built bigger, faster apps</li>
+            <li>Better use of available RAM</li>
+            <li>Could finally develop AI tools</li>
+          </ul>
+        </div>
+        <div class="industry-card featured" data-aos="flip-up" data-aos-delay="200">
+          <div class="ind-glow"></div>
+          <div class="ind-icon"><i class="fas fa-gamepad"></i></div>
+          <h3>Gaming</h3>
+          <ul>
+            <li>Open worlds became possible</li>
+            <li>Much higher quality graphics</li>
+            <li>Faster, smoother gameplay</li>
+          </ul>
+        </div>
+        <div class="industry-card" data-aos="flip-up" data-aos-delay="300">
+          <div class="ind-glow"></div>
+          <div class="ind-icon"><i class="fas fa-server"></i></div>
+          <h3>Data Centers</h3>
+          <ul>
+            <li>Run multiple virtual machines</li>
+            <li>Handle massive databases</li>
+            <li>Power cloud services like Netflix</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Adoption Timeline -->
+      <div class="adoption-bar" data-aos="fade-up" data-aos-delay="400">
+        <h4><i class="fas fa-history"></i> How the world adopted 64-bit over time</h4>
+        <div class="timeline-strip">
+          <div class="ts-item">
+            <div class="ts-dot old"></div>
+            <span class="ts-year">2003</span>
+            <span class="ts-note">AMD releases first 64-bit consumer CPU</span>
+          </div>
+          <div class="ts-line"></div>
+          <div class="ts-item">
+            <div class="ts-dot mid"></div>
+            <span class="ts-year">2007</span>
+            <span class="ts-note">Windows Vista 64-bit launched</span>
+          </div>
+          <div class="ts-line"></div>
+          <div class="ts-item">
+            <div class="ts-dot mid"></div>
+            <span class="ts-year">2012</span>
+            <span class="ts-note">64-bit becomes mainstream for PCs</span>
+          </div>
+          <div class="ts-line"></div>
+          <div class="ts-item">
+            <div class="ts-dot new"></div>
+            <span class="ts-year">2020+</span>
+            <span class="ts-note">32-bit Windows no longer sold</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 10: FUTURE ══ -->
+  <section class="slide" id="slide-10">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">10</span>
+        <h2>So… Are We Moving to 128-bit?</h2>
+        <p class="section-sub">Short answer: probably not anytime soon. Here's what researchers are actually working on instead.</p>
+        <div class="header-line"></div>
+      </div>
+      <div class="future-grid">
+        <div class="future-card no" data-aos="fade-right" data-aos-delay="100">
+          <div class="fc-icon"><i class="fas fa-pause-circle"></i></div>
+          <h3>128-bit? Not yet.</h3>
+          <p>64-bit already gives us way more memory than any computer today can physically fit. There's just no real need for 128-bit right now.</p>
+          <span class="tl-status pending">On hold for now</span>
+        </div>
+        <div class="future-card yes" data-aos="fade-up" data-aos-delay="150">
+          <div class="fc-icon"><i class="fas fa-brain"></i></div>
+          <h3>AI Chips</h3>
+          <p>NVIDIA and Intel are building chips specifically designed to run AI faster — not wider bits, but smarter processing.</p>
+          <span class="tl-status active-status">Happening right now</span>
+        </div>
+        <div class="future-card yes" data-aos="fade-up" data-aos-delay="200">
+          <div class="fc-icon"><i class="fas fa-leaf"></i></div>
+          <h3>Less Power, More Speed</h3>
+          <p>Apple's M-series chips do more work while using less electricity — a huge deal for laptops and phones.</p>
+          <span class="tl-status active-status">Happening right now</span>
+        </div>
+        <div class="future-card yes" data-aos="fade-left" data-aos-delay="250">
+          <div class="fc-icon"><i class="fas fa-cubes"></i></div>
+          <h3>More CPU Cores</h3>
+          <p>Instead of wider bits, modern CPUs get more cores — so they can do many tasks at exactly the same time.</p>
+          <span class="tl-status active-status">Happening right now</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 11: CONCLUSION ══ -->
+  <section class="slide" id="slide-11">
+    <div class="container">
+      <div class="section-header" data-aos="fade-down">
+        <span class="section-number">11</span>
+        <h2>Wrapping It All Up</h2>
+        <p class="section-sub">The shift to 64-bit was one of the most important upgrades in computing history.</p>
+        <div class="header-line"></div>
+      </div>
+      <div class="conclusion-wrapper">
+        <div class="conclusion-points">
+          <div class="con-point" data-aos="fade-right" data-aos-delay="100">
+            <div class="con-icon"><i class="fas fa-check-circle"></i></div>
+            <div>
+              <strong>It broke the 4 GB wall</strong>
+              <p>32-bit systems could never use more than 4 GB of RAM. 64-bit made that limit disappear.</p>
+            </div>
+          </div>
+          <div class="con-point" data-aos="fade-right" data-aos-delay="175">
+            <div class="con-icon"><i class="fas fa-check-circle"></i></div>
+            <div>
+              <strong>It made modern computing possible</strong>
+              <p>Gaming, video editing, AI, and cloud services all rely on 64-bit architecture today.</p>
+            </div>
+          </div>
+          <div class="con-point" data-aos="fade-right" data-aos-delay="250">
+            <div class="con-icon"><i class="fas fa-check-circle"></i></div>
+            <div>
+              <strong>The transition had bumps, but was worth it</strong>
+              <p>Software issues, driver problems, and costs made it tricky — but the benefits far outweighed the pain.</p>
+            </div>
+          </div>
+          <div class="con-point" data-aos="fade-right" data-aos-delay="325">
+            <div class="con-icon"><i class="fas fa-check-circle"></i></div>
+            <div>
+              <strong>The future is smarter, not just wider</strong>
+              <p>We're not rushing to 128-bit. Instead, chips are getting faster, more efficient, and AI-ready.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="conclusion-visual" data-aos="fade-left" data-aos-delay="200">
+          <div class="concl-ring">
+            <div class="concl-ring-inner">
+              <span>64-bit</span>
+              <small>The Standard Today</small>
+            </div>
+          </div>
+          <div class="key-numbers">
+            <div class="kn-item">
+              <span class="kn-val">2×</span>
+              <span class="kn-label">wider data processing</span>
+            </div>
+            <div class="kn-item">
+              <span class="kn-val">4B×</span>
+              <span class="kn-label">more memory addresses</span>
+            </div>
+            <div class="kn-item">
+              <span class="kn-val">67%</span>
+              <span class="kn-label">faster video rendering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-brand" data-aos="fade-up" data-aos-delay="500">
+        <p>Submitted by <strong>Sajal Chaulagain</strong> · LC00017004306 · BIT 1st Year / 1st Semester · Texas College of Management & IT</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SLIDE 12: THANK YOU ══ -->
+  <section class="slide" id="slide-12">
+    <canvas id="ty-canvas"></canvas>
+    <div class="ty-content">
+      <div class="ty-icon" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fas fa-heart"></i>
+      </div>
+      <h2 data-aos="fade-up" data-aos-delay="250">Thank You</h2>
+      <p class="ty-sub" data-aos="fade-up" data-aos-delay="380">
+        for taking the time to go through this presentation
+      </p>
+      <div class="ty-divider" data-aos="fade-up" data-aos-delay="480"></div>
+      <div class="ty-info" data-aos="fade-up" data-aos-delay="580">
+        <div class="ty-row"><i class="fas fa-user"></i><span>Sajal Chaulagain</span></div>
+        <div class="ty-row"><i class="fas fa-id-card"></i><span>LC00017004306</span></div>
+        <div class="ty-row"><i class="fas fa-graduation-cap"></i><span>BIT 1st Year / 1st Semester</span></div>
+        <div class="ty-row"><i class="fas fa-university"></i><span>Texas College of Management & IT</span></div>
+        <div class="ty-row"><i class="fas fa-chalkboard-teacher"></i><span>Submitted to: Ujwal Koirala / Dhiraj Sunar</span></div>
+        <div class="ty-row"><i class="fas fa-book-open"></i><span>Subject: Basic Computer Architecture</span></div>
+      </div>
+      <div class="ty-quote" data-aos="fade-up" data-aos-delay="700">
+        <i class="fas fa-quote-left"></i>
+        <p>The computer was born to solve problems that did not exist before.</p>
+        <span>— Bill Gates</span>
+      </div>
+      <div class="ty-glow-ring"></div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
